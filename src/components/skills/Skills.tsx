@@ -4,7 +4,10 @@ import Tools from "./Tools";
 
 export default function Skills() {
   return (
-    <section className="h-screen w-screen pt-20 flex items-center justify-center flex-wrap">
+    <section
+      id="skills"
+      className="w-screen pt-20 flex items-center justify-evenly flex-wrap p-10"
+    >
       <FrontEnd />
       <BackEnd />
       <Tools />

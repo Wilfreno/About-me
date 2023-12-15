@@ -1,12 +1,12 @@
 import Image from "next/image";
-import cssSvg from "../../../public;
-import htmlSvg from "../../../public;
-import javascriptSvg from "../../../public;
-import nextjsSvg from "../../../public;
-import reactSvg from "../../../public;
-import reduxSvg from "../../../public;
-import tailwindSvg from "../../../public;
-import typescriptSvg from "../../../public;
+import cssSvg from "../../../public/icons8-css.svg";
+import htmlSvg from "../../../public/icons8-html.svg";
+import javascriptSvg from "../../../public/icons8-javascript.svg";
+import nextjsSvg from "../../../public/icons8-nextjs.svg";
+import reactSvg from "../../../public/icons8-react-js.svg";
+import reduxSvg from "../../../public/icons8-redux.svg";
+import tailwindSvg from "../../../public/icons8-tailwind-css.svg";
+import typescriptSvg from "../../../public/icons8-typescript.svg";
 export default function FrontEnd() {
   const icons = [
     { name: "CSS3", svg: cssSvg },
@@ -19,18 +19,26 @@ export default function FrontEnd() {
     { name: "Typescript", svg: typescriptSvg },
   ];
   return (
-    <div>
-      <h1>Front End</h1>
-      <div className="flex flex-col flex-wrap gap-2">
+    <div className="flex flex-col items-center w-[25vw]">
+      <h1 className="text-5xl font-bold my-3 mx-auto bg-gradient-to-tr from-[#EEEEEE] to-[#FFD369] bg-clip-text text-transparent">
+        Front End
+      </h1>
+      <div className="grid grid-cols-3 grid-rows-3 border-[5px] border-[#FFD369] rounded-lg p-5 h-[70vh]">
         {icons.map((icon, index) => (
-          <div key={index} className=" group">
-            <div
-              
-              className="relative aspect-square h-10 w-auto overflow-hidden "
-            >
-              <Image src={icon.svg} alt={icon.name} />
+          <div
+            key={index}
+            className=" group flex flex-col items-center justify-center m-8 hover:scale-110 transform translate duration-300 ease-out"
+          >
+            <div className="flex items-center justify-center relative h-[10vh] w-auto overflow-hidden ">
+              <Image
+                src={icon.svg}
+                alt={icon.name}
+                className="object-contain w-full h-full"
+              />
             </div>
-            <p className="hidden  group-hover:flex">{icon.name}</p>
+            <p className="text-xl font-semibold my-3 text-[rgba(0,0,0,0)]  group-hover:text-[#FFD369] whitespace-nowrap">
+              {icon.name}
+            </p>
           </div>
         ))}
       </div>
