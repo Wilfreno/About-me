@@ -19,24 +19,24 @@ export default function FrontEnd() {
     { name: "Typescript", svg: typescriptSvg },
   ];
   return (
-    <div className="flex flex-col items-center w-[25vw]">
-      <h1 className="text-5xl font-bold my-3 mx-auto bg-gradient-to-tr from-[#EEEEEE] to-[#FFD369] bg-clip-text text-transparent">
+    <div className="flex flex-col items-center w-[23rem] px-5 lg:px-0">
+      <h2 className="text-4xl font-bold my-3 mx-auto bg-gradient-to-tr to-[#EEEEEE] from-[#FFD369] bg-clip-text text-transparent">
         Front End
-      </h1>
-      <div className="grid grid-cols-3 grid-rows-3 border-[5px] border-[#FFD369] rounded-lg p-5 h-[70vh]">
+      </h2>
+      <div className="grid grid-cols-3 grid-rows-3 border-[5px] border-[#FFD369] rounded-lg p-5 h-[60vh] w-full">
         {icons.map((icon, index) => (
           <div
             key={index}
-            className=" group flex flex-col items-center justify-center m-8 hover:scale-110 transform translate duration-300 ease-out"
+            className=" group flex flex-col items-center justify-center hover:scale-110 transform translate duration-300 ease-out"
           >
-            <div className="flex items-center justify-center relative h-[10vh] w-auto overflow-hidden ">
+            <div className="relative h-[8vh] w-auto overflow-hidden ">
               <Image
                 src={icon.svg}
                 alt={icon.name}
                 className="object-contain w-full h-full"
               />
             </div>
-            <p className="text-xl font-semibold my-3 text-[rgba(0,0,0,0)]  group-hover:text-[#FFD369] whitespace-nowrap">
+            <p className="text-sm font-semibold my-3 text-[rgba(0,0,0,0)]  group-hover:text-[#FFD369] whitespace-nowrap">
               {icon.name}
             </p>
           </div>

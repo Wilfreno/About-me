@@ -6,13 +6,13 @@ export default function AboutMe() {
   return (
     <section
       id="about-me"
-      className="min-h-screen pt-20 flex flex-col px-2 justify-evenly items-center lg:flex-row md:px-10"
+      className="min-h-screen pt-20 flex flex-col px-2 justify-evenly items-center lg:flex-row md:px-10 snap-center"
     >
       <div className="flex flex-col items-center justify-center space-y-8  xl:w-[40%]">
-        <h1 className="text-3xl font-bold px-10 whitespace-nowrap xl:text-6xl">
+        <h1 className="bg-gradient-to-br from-[#EEEEEE] to-[#FFD369] bg-clip-text text-transparent text-3xl font-bold whitespace-nowrap xl:text-5xl">
           About Me
         </h1>
-        <div className="px-5 leading-[1.7rem] text-base text-justify md:text-3xl md:leading-[3rem]">
+        <p className=" leading-[1.5rem] px-5 text-sm text-justify md:text-xl md:leading-[2rem] md:px-0">
           Hi! &#128075; I'm{" "}
           <strong className="text-[#FFD369]">Wilfreno Gayongan</strong>. An
           enthusiastic, online game loving,{" "}
@@ -33,17 +33,17 @@ export default function AboutMe() {
           <strong className="italic text-[#FFD369]">Google Places Api</strong>,
           and <strong className="italic text-[#FFD369]">tailwind css</strong>.
           Go to my{" "}
-          <Link href="#project">
-            <u className="font-bold">Project</u>
+          <Link href="#projects">
+            <strong className="font-bold text-[#FFD369] underline">PROJECT</strong>
           </Link>{" "}
           section to see what I've built with it &#128077; .
-        </div>
+        </p>
       </div>
       <div className="flex flex-col ">
         <div className="aspect-square h-auto w-[30vw] hidden lg:inline-flex">
           <Image src={Img} alt="image" className=" object-contain" />
         </div>
-        <button className="flex items-center bg-[#343434] text-[#F3F3F3] font-semibold mx-auto p-3  rounded-lg lg:text-2xl hover:text-[#FFD369] hover:scale-110 hover:shadow-lg  ">
+        <button className="flex items-center my-5 bg-[#343434] text-[#F3F3F3] font-semibold mx-auto p-3  rounded-lg lg:text-2xl hover:text-[#FFD369] hover:scale-110 hover:shadow-lg  ">
           Download my Resume <ArrowDownTrayIcon className="h-8 mx-2" />
         </button>
       </div>
