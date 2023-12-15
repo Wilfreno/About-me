@@ -1,21 +1,27 @@
+import Image from "next/image";
+import meImage from "../../public/me.png";
+import Link from "next/link";
 export default function Opening() {
   return (
     <section
       id="opening"
-      className="min-h-screen bg-slate-50 flex flex-col items-center justify-center drop-shadow-lg lg:flex-row lg:justify-evenly space-y-5 text-gray-900"
+      className="min-h-screen flex flex-col items-center justify-center drop-shadow-lg p-2"
     >
-      <div className="flex items-center justify-center flex-col space-y-5">
-        <div className=" aspect-square h-auto w-80 bg-gray-900 "></div>
-        <p className="text-2xl font-semibold">Wilfreno Gayongan</p>
+      <div className="relative overflow-hidden aspect-square h-[20vh] w-auto lg:h-[45vh]">
+        <Image src={meImage} alt="image" className=" object-contain" />
       </div>
-      <div className="flex flex-col items-center justify-center space-y-5 lg:space-y-8">
-        <p className="z-20 flex items-center  text-2xl sm:text-4xl lg:text-5xl font-bold whitespace-nowrap flex-wrap drop-shadow-xl">
-          Full Stack Web Developer
-        </p>
-        <button className="border bg-gray-900 text-white text-lg lg:text-xl font-semibold p-2 rounded-lg drop-shadow-lg">
-          Contact me
-        </button>
-      </div>
+      <p className="text-2xl font-bold lg:text-4xl lg:my-5">
+        Wilfreno Gayongan
+      </p>
+      <p className="z-20 mt-10 flex items-center text-[#FFD369]  text-3xl sm:text-4xl lg:text-8xl lg:mt-2 font-bold whitespace-nowrap flex-wrap drop-shadow-xl">
+        Full Stack Web Developer
+      </p>
+      <Link
+        href="#contact"
+        className="bg-[#393E46] rounded-lg p-2 text-2xl font-semibold my-5 hover:scale-110 shadow-lg hover:text-[#FFD369] lg:text-3xl lg:p-3"
+      >
+        Contact me
+      </Link>
     </section>
   );
 }

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/Header";
 
-const inter = Manrope({ subsets: ["latin"], weight: ["300", "400", "500"] });
+const inter = Roboto({ subsets: ["latin"], weight: ["300", "400", "500"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
