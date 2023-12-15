@@ -1,19 +1,32 @@
+import Image from "next/image";
+import meImage from "../../public/me.png";
+import Link from "next/link";
+import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
 export default function Opening() {
   return (
     <section
       id="opening"
-      className="min-h-screen bg-slate-50 flex flex-col items-center justify-center drop-shadow-lg lg:flex-row lg:justify-evenly space-y-5 text-gray-900"
+      className="min-h-screen flex flex-col items-center justify-center drop-shadow-lg snap-center"
     >
-      <div className="flex items-center justify-center flex-col space-y-5">
-        <div className=" aspect-square h-auto w-80 bg-gray-900 "></div>
-        <p className="text-2xl font-semibold">Wilfreno Gayongan</p>
+      <div className="relative overflow-hidden aspect-square h-[20vh] w-auto lg:h-[40vh]">
+        <Image src={meImage} alt="image" className=" object-contain" />
       </div>
-      <div className="flex flex-col items-center justify-center space-y-5 lg:space-y-8">
-        <p className="z-20 flex items-center  text-2xl sm:text-4xl lg:text-5xl font-bold whitespace-nowrap flex-wrap drop-shadow-xl">
-          Full Stack Web Developer
-        </p>
-        <button className="border bg-gray-900 text-white text-lg lg:text-xl font-semibold p-2 rounded-lg drop-shadow-lg">
+      <p className=" text-[#EEEEEE] text-2xl font-bold lg:text-3xl lg:my-5">
+        Wilfreno Gayongan
+      </p>
+      <p className="z-20 mt-10 flex items-center bg-gradient-to-r from-[#EEEEEE] to-[#FFD369] bg-clip-text text-transparent  text-3xl sm:text-4xl lg:text-7xl lg:mt-2 font-bold whitespace-nowrap flex-wrap drop-shadow-xl">
+        Full Stack Web Developer
+      </p>
+      <div className="flex flex-col items-center justify-center whitespace-nowrap my-5 space-y-8 xl:space-y-0 xl:space-x-8 xl:flex-row">
+        <Link
+          href="#contact"
+          className="bg-[#393E46] rounded-lg p-2 font-semibold hover:scale-110 shadow-lg hover:text-[#FFD369] lg:text-xl lg:p-3"
+        >
           Contact me
+        </Link>
+        <button className="flex items-center bg-[#393E46] rounded-lg p-2 text-sm font-semibold hover:scale-110 shadow-lg hover:text-[#FFD369] lg:text-xl lg:p-3">
+          <p>Download my Resume</p>
+          <ArrowDownTrayIcon className="h-5 mx-2" />
         </button>
       </div>
     </section>

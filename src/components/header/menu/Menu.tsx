@@ -17,10 +17,10 @@ export default function Menu() {
     <>
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="hover:shadow-lg p-1 rounded-lg hover:border hover:border-gray-200 md:hidden"
+        className="p-1 rounded-lg hover:scale-125 md:hidden"
         ref={button_ref}
       >
-        <Bars3Icon className="h-8" />
+        <Bars3Icon className="h-8 text-[#393E46]" />
       </button>
       {open && <DropDownMenu setOpen={setOpen} />}
     </>
