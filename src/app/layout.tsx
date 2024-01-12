@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/header/Header";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import Navigation from "@/components/navigation/Navigation";
+import Header from "@/components/navigation/Header";
 
 const inter = Roboto({ subsets: ["latin"], weight: ["300", "400", "500"] });
 
@@ -18,8 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system">
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
