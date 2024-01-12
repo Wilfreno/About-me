@@ -5,10 +5,10 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from "../ui/navigation-menu";
+} from "./ui/navigation-menu";
 import { NavigationMenuContent } from "@radix-ui/react-navigation-menu";
 import { Dispatch, SetStateAction } from "react";
-import { Separator } from "../ui/separator";
+import { Separator } from "./ui/separator";
 
 export default function Navigation({
   setIndex,
