@@ -1,7 +1,6 @@
 "use client";
 import AboutMe from "@/components/pages/AboutMe";
-import Navigation from "@/components/navigation/Navigation";
-import { ThemeToggler } from "@/components/navigation/ThemeToggler";
+import { ThemeToggler } from "@/components/ThemeToggler";
 import Projects from "@/components/pages/projects/Projects";
 import { WheelEvent, useState } from "react";
 import Opening from "@/components/pages/Opening";
@@ -9,6 +8,7 @@ import Skills from "@/components/pages/Skills";
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import Navigation from "@/components/Navigation";
 
 export default function Home() {
   const [index, setIndex] = useState(0);

@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import Navigation from "@/components/navigation/Navigation";
-import Header from "@/components/navigation/Header";
 
 const inter = Roboto({ subsets: ["latin"], weight: ["300", "400", "500"] });
 
