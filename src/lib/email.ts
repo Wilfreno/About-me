@@ -30,6 +30,7 @@ export default async function sendEmail({
     });
     return { success: true, msg: "Email Sent" };
   } catch (error) {
+    console.log(error);
     return { success: false, msg: error };
   }
 }

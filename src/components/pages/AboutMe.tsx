@@ -1,7 +1,3 @@
-import Link from "next/link";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { Button } from "../ui/button";
-import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 export default function AboutMe() {
   return (
