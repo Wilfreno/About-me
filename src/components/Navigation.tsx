@@ -24,18 +24,18 @@ export default function Navigation({
     { name: "Contact" },
   ];
   return (
-    <nav className="my-12">
-      <ul className="flex space-x-5">
+    <nav className="mb-10">
+      <ul className="flex sm:space-x-5">
         {pages.map((page, index) => (
           <li
             key={index}
-            className={`flex space-x-2 justify-center whitespace-nowrap cursor-pointer md:space-x-5 ${
-              page_index === index + 1 ? "underline" : ""
+            className={`flex justify-center items-center whitespace-nowrap cursor-pointer p-2 space-x-5 duration-300 ease-out ${
+              page_index === index + 1 ? "font-bold" : "hover:font-bold"
             }`}
             onClick={() => setIndex(index + 1)}
           >
-            {index !== 0 && index !== 4 && <Separator orientation="vertical" />}
             <p className=" text-base lg:text-xl">{page.name}</p>
+            {index !== 3 && <Separator orientation="vertical" />}
           </li>
         ))}
       </ul>
