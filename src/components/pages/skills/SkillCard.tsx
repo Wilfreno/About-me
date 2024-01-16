@@ -15,13 +15,10 @@ type Props = {
     name: string;
     svg: any;
   }[];
-  setIndex: Dispatch<SetStateAction<number>>;
   setHold: Dispatch<SetStateAction<boolean>>;
 };
 const SkillCard = forwardRef<HTMLDivElement, Props>(
-  ({ name, icons, setHold, setIndex }, ref) => {
-    const [swipe_start, setSwipeStart] = useState(0);
-
+  ({ name, icons, setHold }, ref) => {
     return (
       <motion.div
         ref={ref}
@@ -29,18 +26,6 @@ const SkillCard = forwardRef<HTMLDivElement, Props>(
         className="grow flex flex-col items-center justify-evenly w-screen  md:flex-row cursor-grab"
         onMouseDown={() => setHold(true)}
         onMouseUp={() => setHold(false)}
-        onTouchStart={(e) => {
-          setHold(true);
-          setSwipeStart(e.touches[0].clientX);
-        }}
-        onTouchEnd={(e) => {
-          setHold(false);
-          if (swipe_start > e.changedTouches[0].clientX) {
-            setIndex((prev) => (prev - 1) % 3);
-          } else {
-            setIndex((prev) => (prev + 1) % 3);
-          }
-        }}
       >
         <motion.h2
           initial={{ opacity: 0, x: 20 }}

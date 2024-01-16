@@ -83,7 +83,6 @@ export default function Skills() {
         icons={skills[skill_index].icons}
         ref={div_Ref}
         setHold={setHold}
-        setIndex={setIndex}
       />
       <div className="space-x-3 my-2">
         {skills.map((_, index) => (
