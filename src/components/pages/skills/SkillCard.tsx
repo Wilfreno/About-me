@@ -23,7 +23,7 @@ const SkillCard = forwardRef<HTMLDivElement, Props>(
       <motion.div
         ref={ref}
         key={name}
-        className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2  cursor-grab "
+        className="grid grid-rows-[auto_1fr] md:grid-rows-1 md:grid-cols-2  cursor-grab "
         onMouseDown={() => setHold(true)}
         onMouseUp={() => setHold(false)}
       >

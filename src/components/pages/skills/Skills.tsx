@@ -62,7 +62,7 @@ export default function Skills() {
     return () => clearInterval(id);
   }, [div_Ref, hold]);
   return (
-    <section className="grid grid-rows-[auto_1fr_auto]">
+    <section className="grid grid-rows-[auto_1fr_auto] ">
       <h1 className="flex text-3xl lg:text-5xl font-bold mx-auto my-5">
         {"Skills".split("").map((c, index) =>
           c === " " ? (
