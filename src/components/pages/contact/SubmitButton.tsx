@@ -6,10 +6,7 @@ export default function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button
-      type="submit"
-      className="absolute bottom-5 right-4 cursor-pointer md:bottom-3"
-    >
+    <button type="submit" className="absolute  bottom-3 right-4 cursor-pointer">
       {pending ? (
         <Loading className="h-5" />
       ) : (

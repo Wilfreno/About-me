@@ -7,16 +7,11 @@ import { EnvelopeIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import EmailForm from "./EmailForm";
 export default function EmailDrawer() {
   return (
-    <DrawerContent>
-      <DrawerClose>
-        <XMarkIcon className="absolute right-1 top-1 h-8" />
+    <DrawerContent className="grid h-[70dvh] grid-rows-[auto_auto_1fr] p-1">
+      <DrawerClose className="absolute w-fit h-fit top-2 right-2">
+        <XMarkIcon className="h-6" />
       </DrawerClose>
-      <DrawerHeader className="flex items-center">
-        <p className="flex items-center justify-center">
-          Gmail
-          <EnvelopeIcon className="h-5 mx-2" />
-        </p>
-      </DrawerHeader>
+      <DrawerHeader className="flex items-center"></DrawerHeader>
       <EmailForm />
     </DrawerContent>
   );
