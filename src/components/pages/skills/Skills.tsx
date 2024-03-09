@@ -16,6 +16,7 @@ import vscodeSvg from "../../../../public/vscode-svgrepo-com.svg";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import SkillCard from "./SkillCard";
+
 export default function Skills() {
   const [skill_index, setIndex] = useState(0);
   const [hold, setHold] = useState(false);
@@ -61,8 +62,8 @@ export default function Skills() {
     return () => clearInterval(id);
   }, [div_Ref, hold]);
   return (
-    <>
-      <h1 className="flex text-3xl lg:text-5xl font-bold">
+    <section className="grid grid-rows-[auto_1fr_auto]">
+      <h1 className="flex text-3xl lg:text-5xl font-bold mx-auto my-5">
         {"Skills".split("").map((c, index) =>
           c === " " ? (
             <span key={index} className="mx-2"></span>
@@ -84,17 +85,17 @@ export default function Skills() {
         ref={div_Ref}
         setHold={setHold}
       />
-      <div className="space-x-3 my-2">
+      <div className="space-x-3 mx-auto self-end">
         {skills.map((_, index) => (
           <button
             key={index}
             className={`${
               index === skill_index ? "bg-primary" : "bg-secondary"
-            } aspect-square h-5 w-auto rounded-full border border-primary dark:border-none`}
+            } aspect-square h-3 sm:h-5 w-auto rounded-full border border-primary dark:border-none`}
             onClick={() => setIndex(index)}
           ></button>
         ))}
       </div>
-    </>
+    </section>
   );
 }

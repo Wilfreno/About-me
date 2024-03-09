@@ -1,24 +1,34 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 export default function HanapBH() {
+  const [width, setWidth] = useState<number>();
+
   useEffect(() => {
+    setWidth(window.innerWidth);
+    function handleResize() {
+      setWidth(window.innerWidth);
+    }
+
     navigator.geolocation.getCurrentPosition(
       (position) => {},
       (error) => {
         throw error;
       }
     );
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   return (
-    <>
-      <motion.div className="space-y-10 px-5 flex flex-col md:w-[50vw]">
+    <div className="grid md:grid-cols-2">
+      <motion.div className="grid grid-rows-[auto_auto_1fr_auto] p-5 space-y-5">
         <motion.h2
           initial={{ opacity: 0, x: -500 }}
           animate={{ opacity: 1, x: 0 }}
-          // transition={{ duration: 0.3 }}
-          className="text-4xl lg:text-8xl font-semibold whitespace-nowrap italic self-center"
+          className="text-3xl md:text-4xl font-semibold whitespace-nowrap italic mx-auto"
         >
           Hanap - BH
         </motion.h2>
@@ -26,13 +36,12 @@ export default function HanapBH() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-xl text-justify"
+          className="text-base text-justify"
         >
           A complete <strong>Full-Stack </strong> Web Application that help
-          filipinos locate the nearest lodging / boarding house in their
-          vicinity
+          filipinos locate the nearest lodging in their vicinity
         </motion.p>
-        <ul className="list-disc text-sm lg:text-lg text-justify">
+        <ul className="list-disc text-xs md:text-base text-justify space-y-3 px-2">
           <motion.li
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
@@ -67,23 +76,31 @@ export default function HanapBH() {
             <strong>better user experience</strong>
           </motion.li>
         </ul>
+        {width! <= 640 && (
+          <Button variant="outline">
+            <Link href="https://hanapbh.vercel.app/" target="_blank">
+              https://hanap-bh.vercel.app/
+            </Link>
+          </Button>
+        )}
       </motion.div>
-      <Button variant="link" className="md:hidden">
-        <Link href="https://hanap-bh.vercel.app/" target="_blank">
-          https://hanap-bh.vercel.app/
-        </Link>
-      </Button>
-      <div className="hidden md:flex first-letter:relative aspect-[9/16] h-[56vh] w-auto hover:scale-105 transform translate duration-300 ease-out">
-        <Link
-          href="https://hanap-bh.vercel.app/"
-          target="_blank"
-          className="absolute z-10 bg-transparent h-full w-full border rounded-lg"
-        ></Link>
-        <iframe
-          src="https://hanap-bh.vercel.app/"
-          className=" h-full w-full rounded-lg cursor-pointer shadow-lg border-none"
-        ></iframe>
-      </div>
-    </>
+      {width! > 640 && (
+        <motion.div
+          whileHover={{ scale: 1.03 }}
+          transition={{ duration: 0.3 }}
+          className="relative grow m-3"
+        >
+          <Link
+            href="https://hanapbh.vercel.app/"
+            target="_blank"
+            className="absolute top-0 left-0 z-10 bg-transparent h-full w-full border rounded-lg"
+          ></Link>
+          <iframe
+            src="https://hanapbh.vercel.app/"
+            className="h-full w-full rounded-lg cursor-pointer shadow-lg border-none"
+          ></iframe>
+        </motion.div>
+      )}
+    </div>
   );
 }

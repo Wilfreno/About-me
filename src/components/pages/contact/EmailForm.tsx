@@ -56,8 +56,12 @@ export default function EmailForm() {
       }));
   }, []);
   return (
-    <form action={formAction} autoComplete="off" className="md:space-y-5">
-      <div className="space-y-2 px-2">
+    <form
+      action={formAction}
+      autoComplete="off"
+      className="grid grid-rows-[auto_1fr] grow space-y-5"
+    >
+      <div className="space-y-2 px-2 ">
         <span className=" relative flex items-center whitespace-nowrap space-x-2">
           <Label>To :</Label>
           <Input disabled value="w.gayongan@gmail.com" />
@@ -127,22 +131,20 @@ export default function EmailForm() {
           />
         </span>
       </div>
-      <div className="p-1 relative md:p-0">
-        <Textarea
-          name="message"
-          placeholder="Message"
-          className="aspect-square resize-none md:aspect-video md:h-[35vh]"
-          value={form_content?.values.message}
-          onChange={(e) => {
-            setFormContent((prev) => ({
-              ...prev!,
-              values: { ...prev?.values!, message: e.target.value },
-            }));
-            sessionStorage.setItem("message", e.target.value);
-          }}
-        />
-        {form_content?.values.message && <SubmitButton />}
-      </div>
+      <Textarea
+        name="message"
+        placeholder="Message"
+        className="resize-none grow"
+        value={form_content?.values.message}
+        onChange={(e) => {
+          setFormContent((prev) => ({
+            ...prev!,
+            values: { ...prev?.values!, message: e.target.value },
+          }));
+          sessionStorage.setItem("message", e.target.value);
+        }}
+      />
+      {form_content?.values.message && <SubmitButton />}
     </form>
   );
 }

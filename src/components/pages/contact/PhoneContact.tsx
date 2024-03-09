@@ -6,9 +6,9 @@ export default function PhoneContact() {
   const [copied, setCopied] = useState(false);
 
   return (
-    <div className="flex items-center self-start group rounded-lg p-2 ">
-      <PhoneIcon className="h-12 mx-2" />
-      <p className="mx-5 text-xl ">+63 9600252024</p>
+    <div className="flex items-center group rounded-lg md:p-2 ">
+      <PhoneIcon className="h-5 md:h-10 md:mx-2" />
+      <p className="mx-5 text-sm md:text-xl ">+63 9600252024</p>
       {copied ? (
         <motion.span
           initial={{ opacity: 0 }}

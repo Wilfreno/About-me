@@ -15,10 +15,12 @@ export default function GithubContact() {
           <Link
             href="https://github.com/Wilfreno"
             target="_blank"
-            className="flex items-center self-start group hover:bg-secondary rounded-lg p-2"
+            className="flex items-center group hover:bg-secondary rounded-lg md:p-2"
           >
-            <GitHubLogoIcon className="h-auto w-12 " />
-            <p className="mx-5 text-xl group-hover:underline">/Wilfreno</p>
+            <GitHubLogoIcon className="h-auto w-5 md:w-10 " />
+            <p className="mx-5 text-sm md:text-xl group-hover:underline">
+              /Wilfreno
+            </p>
           </Link>
         </TooltipTrigger>
         <TooltipContent>

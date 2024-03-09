@@ -2,8 +2,8 @@ import HanapBH from "./HanapBH";
 import { motion } from "framer-motion";
 export default function Projects() {
   return (
-    <>
-      <motion.h1 className="flex text-3xl lg:text-5xl font-bold">
+    <section className="grid grid-rows-[auto_1fr]">
+      <motion.h1 className="flex text-3xl lg:text-5xl font-bold mx-auto my-5">
         {" Projects".split("").map((c, index) =>
           c === " " ? (
             <span key={index} className="mx-2"></span>
@@ -19,9 +19,9 @@ export default function Projects() {
           )
         )}
       </motion.h1>
-      <div className="flex flex-col items-center justify-evenly md:flex-row grow w-[100vw]">
+      <div className="grid">
         <HanapBH />
       </div>
-    </>
+    </section>
   );
 }
