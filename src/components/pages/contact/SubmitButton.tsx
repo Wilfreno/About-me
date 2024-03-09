@@ -8,12 +8,12 @@ export default function SubmitButton() {
   return (
     <button
       type="submit"
-      className="absolute bottom-5 right-5 cursor-pointer md:bottom-3"
+      className="absolute bottom-5 right-4 cursor-pointer md:bottom-3"
     >
       {pending ? (
-        <Loading className="h-6" />
+        <Loading className="h-5" />
       ) : (
-        <PaperPlaneIcon className="w-auto h-6 " />
+        <PaperPlaneIcon className="w-auto h-5 " />
       )}
     </button>
   );

@@ -131,20 +131,22 @@ export default function EmailForm() {
           />
         </span>
       </div>
-      <Textarea
-        name="message"
-        placeholder="Message"
-        className="resize-none grow"
-        value={form_content?.values.message}
-        onChange={(e) => {
-          setFormContent((prev) => ({
-            ...prev!,
-            values: { ...prev?.values!, message: e.target.value },
-          }));
-          sessionStorage.setItem("message", e.target.value);
-        }}
-      />
-      {form_content?.values.message && <SubmitButton />}
+      <div className="grow relative">
+        <Textarea
+          name="message"
+          placeholder="Message"
+          className="resize-none h-full w-full"
+          value={form_content?.values.message}
+          onChange={(e) => {
+            setFormContent((prev) => ({
+              ...prev!,
+              values: { ...prev?.values!, message: e.target.value },
+            }));
+            sessionStorage.setItem("message", e.target.value);
+          }}
+        />
+        {form_content?.values.message && <SubmitButton />}
+      </div>
     </form>
   );
 }

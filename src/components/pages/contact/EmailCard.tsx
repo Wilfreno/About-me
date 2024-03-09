@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
 import EmailForm from "./EmailForm";
 export default function EmailCard() {
   return (
