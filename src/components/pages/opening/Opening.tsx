@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { Button } from "../../ui/button";
 import { motion } from "framer-motion";
-import Name from "./Name";
+import Image from "next/image";
 
 export default function Opening({
   setIndex,
@@ -24,16 +24,20 @@ export default function Opening({
     }
   }
   return (
-    <section className="grid grid-rows-[1fr_auto_auto] justify-center space-y-10">
-      <Name />
-      <motion.h2
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="text-4xl lg:text-6xl font-semibold mx-auto"
-      >
-        Web Developer
-      </motion.h2>
+    <section className="flex items-center justify-between">
+      <div>
+        <Image
+          src="https://avatars.githubusercontent.com/u/48620014?v=4"
+          alt="Wilfreno Gayongan"
+          width={500}
+          height={500}
+          className="aspect-square h-auto w-[clamp(20vw,_20vw,_90vw)]"
+        />
+        <h1>Wilfreno Gayongan</h1>
+        <h2 className="text-4xl lg:text-6xl font-semibold mx-auto">
+          Web Developer
+        </h2>
+      </div>
       <div className="mx-auto flex space-x-5">
         <motion.div
           animate={{ scale: [1, 1.25, 1] }}
