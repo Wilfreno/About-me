@@ -31,7 +31,10 @@ export default function Options() {
   const MotionDropdownMenuItem = useMemo(() => motion(DropdownMenuItem), []);
   const items = [
     { name: "toggle theme", icon: <ThemeToggler /> },
-    { name: "contact", icon: <ContactSvg className="h-6 w-auto fill-white" /> },
+    {
+      name: "contact",
+      icon: <ContactSvg className="h-6 w-auto fill-accent-foreground" />,
+    },
     { name: "skills", icon: <WrenchScrewdriverIcon className="h-6 w-auto" /> },
     { name: "projects", icon: <Squares2X2Icon className="h-6 w-auto" /> },
     { name: "profile", icon: <UserIcon className="h-6 w-auto" /> },
@@ -78,7 +81,9 @@ export default function Options() {
                       </Link>
                     </MotionDropdownMenuItem>
                   </TooltipTrigger>
-                  <TooltipContent side="left">{item.name}</TooltipContent>
+                  <TooltipContent side="left" align="start" alignOffset={-5}>
+                    {item.name}
+                  </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
             ))}
