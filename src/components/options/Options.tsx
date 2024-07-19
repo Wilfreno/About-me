@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 import { Button } from "../ui/button";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ThemeToggler from "../ThemeToggler";
 import Link from "next/link";
@@ -29,6 +29,7 @@ import {
 
 export default function Options() {
   const MotionDropdownMenuItem = useMemo(() => motion(DropdownMenuItem), []);
+  const [on_top, setOntop] = useState(true);
   const items = [
     { name: "toggle theme", icon: <ThemeToggler /> },
     {
@@ -41,55 +42,66 @@ export default function Options() {
     { name: "start", icon: <HomeIcon className="h-6 w-auto" /> },
   ];
 
+  useEffect(() => {
+    console.log(window.scrollY);
+
+    window.scrollY === 0 ? setOntop(true) : setOntop(true);
+    window.addEventListener("scroll", () =>
+      window.scrollY === 0 ? setOntop(true) : setOntop(true)
+    );
+  }, []);
+
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="secondary"
-          className="aspect-square h-fit w-auto p-2 rounded-full shadow-md fixed bottom-8 right-8"
-        >
-          <Bars3Icon className="h-6 stroke-primary" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-fit h-fit bg-transparent rounded-full focus-visible:ring-0 border-none">
-        <DropdownMenuGroup className="space-y-3">
-          <AnimatePresence>
-            {items.map((item, index) => (
-              <TooltipProvider key={index}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <MotionDropdownMenuItem
-                      key={item.name}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                          delay: (items.length - index) * 0.1,
-                        },
-                      }}
-                      exit={{ opacity: 0, y: 10 }}
-                      className="aspect-square h-fit w-auto p-2 rounded-full "
-                    >
-                      <Link
-                        href={"#" + item.name}
-                        as={"#" + item.name}
-                        prefetch
-                        className="hover:fill-primary"
+    !on_top && (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button
+            variant="secondary"
+            className="aspect-square h-fit w-auto p-2 rounded-full shadow-md fixed bottom-8 right-8"
+          >
+            <Bars3Icon className="h-6 stroke-primary" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-fit h-fit bg-transparent rounded-full focus-visible:ring-0 border-none">
+          <DropdownMenuGroup className="space-y-3">
+            <AnimatePresence>
+              {items.map((item, index) => (
+                <TooltipProvider key={index}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <MotionDropdownMenuItem
+                        key={item.name}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{
+                          opacity: 1,
+                          y: 0,
+                          transition: {
+                            delay: (items.length - index) * 0.1,
+                          },
+                        }}
+                        exit={{ opacity: 0, y: 10 }}
+                        className="aspect-square h-fit w-auto p-2 rounded-full "
                       >
-                        {item.icon}
-                      </Link>
-                    </MotionDropdownMenuItem>
-                  </TooltipTrigger>
-                  <TooltipContent side="left" align="start" alignOffset={-5}>
-                    {item.name}
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            ))}
-          </AnimatePresence>
-        </DropdownMenuGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
+                        <Link
+                          href={"#" + item.name}
+                          as={"#" + item.name}
+                          prefetch
+                          className="hover:fill-primary"
+                        >
+                          {item.icon}
+                        </Link>
+                      </MotionDropdownMenuItem>
+                    </TooltipTrigger>
+                    <TooltipContent side="left" align="start" alignOffset={-5}>
+                      {item.name}
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              ))}
+            </AnimatePresence>
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    )
   );
 }
