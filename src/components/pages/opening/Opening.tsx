@@ -36,7 +36,7 @@ export default function Opening() {
 
   return (
     <section
-      className="w-screen h-[100dvh] grid grid-rows-[1fr_auto] justify"
+      className="w-screen h-[100dvh] grid grid-rows-[1fr_auto] justify snap-center"
       id="start"
     >
       <div className="flex flex-col md:flex-row items-center justify-evenly">

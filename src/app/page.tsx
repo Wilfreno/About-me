@@ -5,10 +5,10 @@ import Projects from "@/components/pages/projects/Projects";
 
 export default function Home() {
   return (
-    <main>
+    <main className="snap-y snap-mandatory scroll-smooth max-h-screen overflow-x-hidden ">
       <Options />
       <Opening />
-      {/* <Projects /> */}
+      <Projects />
     </main>
   );
 }
