@@ -42,7 +42,7 @@ export default function Opening() {
         onViewportEnter={(e) => setViewMenu(false)}
         onViewportLeave={(e) =>  setViewMenu(true) }
         viewport={{amount: .5}}
-        className="w-screen h-[100dvh] max-h-screen grid grid-rows-[1fr_auto] justify snap-center"
+        className="w-screen h-[100dvh] max-h-screen grid grid-rows-[1fr_auto] justify snap-center "
         id="start"
       >
         <div className="flex flex-col md:flex-row items-center justify-evenly">
@@ -144,7 +144,7 @@ export default function Opening() {
             </Link>
           </Button>
           <Button variant="link">
-            <Link href="#contacts" as="#contacts" prefetch className="text-xl">
+            <Link href="#contact" as="#contact" prefetch className="text-xl">
               contact
             </Link>
           </Button>

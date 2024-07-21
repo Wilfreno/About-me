@@ -8,7 +8,6 @@ import { useFormState, useFormStatus } from "react-dom";
 import { submitForm } from "@/lib/actions";
 import { FormContent } from "@/lib/types";
 import { useToast } from "@/components/ui/use-toast";
-import Loading from "@/components/svg/Loading";
 import SubmitButton from "./SubmitButton";
 
 export default function EmailForm() {

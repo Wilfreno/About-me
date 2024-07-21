@@ -1,4 +1,5 @@
 import Options from "@/components/options/Options";
+import Contact from "@/components/pages/contact/Contact";
 import Opening from "@/components/pages/opening/Opening";
 import Projects from "@/components/pages/projects/Projects";
 import Skills from "@/components/pages/skills/Skills";
@@ -8,7 +9,8 @@ export default function Home() {
     <main className="snap-y snap-mandatory scroll-smooth max-h-screen overflow-x-hidden ">
       <Opening />
       <Projects />
-      <Skills/>
+      <Skills />
+      <Contact/>
     </main>
   );
 }
