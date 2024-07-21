@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-export default function Croom() {
+export default async function Croom() {
   return (
-    <div className="flex px-10 justify-between">
-      <div className="space-y-10">
-        <div className="space-y-10 flex flex-col">
-          <div className="space-y-2 mx-auto flex flex-col items-center">
+    <div className="flex flex-col md:flex-row space-y-5 md:space-x-10 md:p-10 ">
+      <div className="space-y-5 px-5">
+        <div className="space-y-5 flex flex-col">
+          <div className="space-y-2 mx-auto flex flex-col items-center text-wrap">
             <h1 className="font-bold text-5xl">Croom</h1>
             <div className="flex space-x-5">
               <Link
@@ -22,30 +22,40 @@ export default function Croom() {
               >{`(website)`}</Link>
             </div>
           </div>
-          <p>
+          <p className="break-normal text-justify">
             Croom is a real time chat web application where users can start a
             study session on their respective chat room.
           </p>
         </div>
-        <div className="space-y-3">
-          <h2 className="font-bold text-lg">Tech Used :</h2>
-          <p className="font-semibold indent-4">Front-end: </p>
-          <ul className="flex indent-8">
-            <li>Reactjs</li>
-            <li>Nextjs</li>
-            <li>Tailwind-css</li>
-            <li>React Redux</li>
-          </ul>
-          <p className="font-semibold indent-4">Back-end</p>
-          <ul className="flex indent-8">
-            <li>Nodejs</li>
-            <li>Expressjs</li>
-            <li>MongoDB</li>
-            <li>Websocket</li>
-          </ul>
+        <div className="flex flex-col">
+          <h2 className="font-bold text-base ">
+            Tech Used :
+          </h2>
+          <div className="flex space-x-3">
+            <p className="font-semibold md:indent-4 whitespace-nowrap">
+              Front-end :
+            </p>
+            <ul className="flex flex-wrap space-x-3">
+              <li>Reactjs</li>
+              <li>Nextjs</li>
+              <li>Tailwind-css</li>
+              <li>React Redux</li>
+            </ul>
+          </div>
+          <div className="flex space-x-3 ">
+            <p className="font-semibold md:indent-4 whitespace-nowrap">
+              Back-end :
+            </p>
+            <ul className="flex flex-wrap space-x-3">
+              <li>Nodejs</li>
+              <li>Expressjs</li>
+              <li>MongoDB</li>
+              <li>Websocket</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div className="relative h-[65dvh] w-auto aspect-video hover:scale-105">
+      <div className="relative h-auto w-[90vw] md:h-[65dvh] md:w-auto  aspect-video hover:scale-105 mx-auto">
         <Link
           href="https://croom-wing.vercel.app/"
           as="https://croom-wing.vercel.app/"

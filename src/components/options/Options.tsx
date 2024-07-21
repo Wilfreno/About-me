@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 import { Button } from "../ui/button";
-import { useEffect, useMemo, useState } from "react";
+import {  useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ThemeToggler from "../ThemeToggler";
 import Link from "next/link";
@@ -29,7 +29,6 @@ import {
 
 export default function Options() {
   const MotionDropdownMenuItem = useMemo(() => motion(DropdownMenuItem), []);
-  const [on_top, setOntop] = useState(true);
   const items = [
     { name: "toggle theme", icon: <ThemeToggler /> },
     {
@@ -42,22 +41,13 @@ export default function Options() {
     { name: "start", icon: <HomeIcon className="h-6 w-auto" /> },
   ];
 
-  useEffect(() => {
-    console.log(window.scrollY);
-
-    window.scrollY === 0 ? setOntop(true) : setOntop(true);
-    window.addEventListener("scroll", () =>
-      window.scrollY === 0 ? setOntop(true) : setOntop(true)
-    );
-  }, []);
 
   return (
-    !on_top && (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
             variant="secondary"
-            className="aspect-square h-fit w-auto p-2 rounded-full shadow-md fixed bottom-8 right-8"
+            className="aspect-square h-fit w-auto p-2 rounded-full shadow-md fixed bottom-5 right-6"
           >
             <Bars3Icon className="h-6 stroke-primary" />
           </Button>
@@ -102,6 +92,5 @@ export default function Options() {
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
-    )
   );
 }

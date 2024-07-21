@@ -19,7 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(inter.className)}>
+      <body
+        className={cn(
+          inter.className,
+          "snap-y snap-mandatory scroll-smooth max-h-screen overflow-x-hidden "
+        )}
+      >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
           <Toaster />
