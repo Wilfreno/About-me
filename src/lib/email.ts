@@ -1,3 +1,5 @@
+import Email from "@/components/Email";
+import { render } from "@react-email/components";
 import { createTransport } from "nodemailer";
 
 export default async function sendEmail({
@@ -22,12 +24,13 @@ export default async function sendEmail({
     const verify = await transport.verify();
     if (!verify) new Error(verify);
 
+    const html = render(Email({ from, message }));
     await transport.sendMail({
-      from: "w.gayongan@gmail.com",
+      from: from,
       to: "w.gayongan@gmail.com",
       replyTo: from,
       subject,
-      html: message
+      html: html,
     });
     return { success: true, msg: "Email Sent" };
   } catch (error) {
