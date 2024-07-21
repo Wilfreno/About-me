@@ -2,11 +2,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import {
   Dispatch,
-  Ref,
   SetStateAction,
-  TouchEvent,
   forwardRef,
-  useState,
 } from "react";
 
 type Props = {

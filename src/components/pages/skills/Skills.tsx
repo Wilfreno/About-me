@@ -1,3 +1,4 @@
+"use client"
 import cssSvg from "../../../../public/icons8-css.svg";
 import htmlSvg from "../../../../public/icons8-html.svg";
 import javascriptSvg from "../../../../public/icons8-javascript.svg";
@@ -45,39 +46,27 @@ export default function Skills() {
       ],
     },
     {
-      name: "Tools",
+      name: "Dev Ops",
       icons: [
         { name: "git", svg: gitSvg },
         { name: "Github", svg: githubSvg },
-        { name: "VScode", svg: vscodeSvg },
+        { name: "Docker", svg: vscodeSvg },
+        { name: "GCP", svg: vscodeSvg },
       ],
     },
   ];
   useEffect(() => {
     let id: NodeJS.Timeout;
     if (div_Ref && !hold) {
-      id = setInterval(() => setIndex((prev) => (prev + 1) % 3), 3000);
+      id = setInterval(() => setIndex((prev) => (prev + 1) % 3), 5000);
     }
 
     return () => clearInterval(id);
   }, [div_Ref, hold]);
   return (
-    <section className="grid grid-rows-[auto_1fr_auto] ">
+    <section className="grid grid-rows-[auto_1fr_auto] h-[100dvh] w-screen snap-center">
       <h1 className="flex text-3xl lg:text-5xl font-bold mx-auto my-5">
-        {"Skills".split("").map((c, index) =>
-          c === " " ? (
-            <span key={index} className="mx-2"></span>
-          ) : (
-            <motion.p
-              key={index}
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * index }}
-            >
-              {c}
-            </motion.p>
-          )
-        )}
+        Skills
       </h1>
       <SkillCard
         name={skills[skill_index].name}
@@ -85,7 +74,7 @@ export default function Skills() {
         ref={div_Ref}
         setHold={setHold}
       />
-      <div className="space-x-3 mx-auto self-end">
+      <div className="space-x-3 mx-auto self-end my-10">
         {skills.map((_, index) => (
           <button
             key={index}
