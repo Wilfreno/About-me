@@ -13,9 +13,9 @@ import mongodbSvg from "../../../../public/mongodb-svgrepo-com.svg";
 import mongooseSvg from "../../../../public/Mongoose.js.svg";
 import gitSvg from "../../../../public/icons8-git.svg";
 import githubSvg from "../../../../public/icons8-github.svg";
-import vscodeSvg from "../../../../public/vscode-svgrepo-com.svg";
+import dockerSvg from "../../../../public/docker-svgrepo-com.svg"
+import gcpSvg from "../../../../public/gcp-svgrepo-com.svg"
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import SkillCard from "./SkillCard";
 
 export default function Skills() {
@@ -50,8 +50,8 @@ export default function Skills() {
       icons: [
         { name: "git", svg: gitSvg },
         { name: "Github", svg: githubSvg },
-        { name: "Docker", svg: vscodeSvg },
-        { name: "GCP", svg: vscodeSvg },
+        { name: "Docker", svg: dockerSvg },
+        { name: "GCP", svg: gcpSvg },
       ],
     },
   ];
@@ -64,7 +64,7 @@ export default function Skills() {
     return () => clearInterval(id);
   }, [div_Ref, hold]);
   return (
-    <section className="grid grid-rows-[auto_1fr_auto] h-[100dvh] w-screen snap-center">
+    <section className="grid grid-rows-[auto_1fr_auto] h-[100dvh] w-screen snap-center" id="skills">
       <h1 className="flex text-3xl lg:text-5xl font-bold mx-auto my-5">
         Skills
       </h1>
