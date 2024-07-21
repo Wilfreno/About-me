@@ -26,10 +26,8 @@ export default function Email({
       <Head />
       <Tailwind>
         <Body className="bg-white">
-          <Container className="border border-gray-200 border-solid rounded shadow-md w-full font-sans font-medium space-y-10">
-            <Text>From: {from}</Text>
-            <Text>{message}</Text>
-          </Container>
+          <Text>From: {from}</Text>
+          <Text>{message}</Text>
         </Body>
       </Tailwind>
     </Html>

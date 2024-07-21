@@ -25,6 +25,7 @@ export default async function sendEmail({
     if (!verify) new Error(verify);
 
     const html = render(Email({ from, message }));
+
     await transport.sendMail({
       from: from,
       to: "w.gayongan@gmail.com",
