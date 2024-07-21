@@ -12,7 +12,7 @@ import Options from "@/components/options/Options";
 export default function Opening() {
   const [view_about_me, setViewAboutMe] = useState(false);
   const [hold, setHold] = useState(false);
-  const [view_option, setViewMenu] = useState(false)
+  const [view_option, setViewMenu] = useState(false);
   async function handleClick() {
     try {
       const response = await fetch("/api/download");
@@ -30,7 +30,7 @@ export default function Opening() {
   useEffect(() => {
     let id: NodeJS.Timeout;
 
-    if (!hold) id = setInterval(() => setViewAboutMe((prev) => !prev), 2000);
+    if (!hold) id = setInterval(() => setViewAboutMe((prev) => !prev), 10000);
 
     return () => clearInterval(id);
   }, [hold]);
@@ -40,8 +40,8 @@ export default function Opening() {
       {view_option && <Options />}
       <motion.section
         onViewportEnter={(e) => setViewMenu(false)}
-        onViewportLeave={(e) =>  setViewMenu(true) }
-        viewport={{amount: .5}}
+        onViewportLeave={(e) => setViewMenu(true)}
+        viewport={{ amount: 0.5 }}
         className="w-screen h-[100dvh] max-h-screen grid grid-rows-[1fr_auto] justify snap-center "
         id="start"
       >
@@ -53,7 +53,7 @@ export default function Opening() {
               width={500}
               height={500}
               className="aspect-square h-auto w-[60vw] md:w-[20vw] rounded-full"
-            priority
+              priority
             />
             <h1 className="text-2xl md:text-3xl font-bold">
               Wilfreno Gayongan
@@ -111,7 +111,9 @@ export default function Opening() {
                         className="text-lg md:text-2xl hover:scale-110"
                         variant="secondary"
                       >
-                        Contact me
+                        <Link href="#contact" as="#contact" prefetch>
+                          Contact me
+                        </Link>
                       </Button>
                     </div>
                   </motion.div>

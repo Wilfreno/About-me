@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { motion } from "framer-motion";
 
 import EmailCard from "./EmailCard";
@@ -23,7 +23,10 @@ export default function Contact() {
   }, []);
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 snap-center w-screen h-[100dvh] p-10" id="contacts">
+    <section
+      className="grid grid-cols-1 md:grid-cols-2 snap-center w-screen h-[100dvh] p-10"
+      id="contact"
+    >
       {width! > 640 && <EmailCard />}
       <div className="grid grid-rows-[auto_1fr]">
         <h1 className="text-3xl lg:text-5xl font-bold flex mx-auto my-5">
