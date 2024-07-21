@@ -27,7 +27,7 @@ export default async function sendEmail({
       to: "w.gayongan@gmail.com",
       replyTo: from,
       subject,
-      html: `<h6>from: ${from}</h6><p>${message}</p>`,
+      html: message
     });
     return { success: true, msg: "Email Sent" };
   } catch (error) {
