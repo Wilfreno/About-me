@@ -97,6 +97,7 @@ export default function EmailForm() {
           <Label htmlFor="from">From :</Label>
           <Input
             placeholder="Email"
+            required
             type="email"
             id="from"
             name="from"
