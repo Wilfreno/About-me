@@ -39,7 +39,7 @@ export async function submitForm(
     }
 
     return {
-      message: "Email Sent Successfuly",
+      message: "Email Sent Successfully",
       error: undefined,
       values: {
         from,

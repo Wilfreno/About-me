@@ -23,8 +23,9 @@ export default async function sendEmail({
     if (!verify) new Error(verify);
 
     await transport.sendMail({
-      from,
+      from: "w.gayongan@gmail.com",
       to: "w.gayongan@gmail.com",
+      replyTo: from,
       subject,
       html: message,
     });
