@@ -7,16 +7,19 @@ import {
 } from "@/components/ui/drawer";
 import { AtSign, X } from "lucide-react";
 import EmailForm from "./EmailForm";
+import { Button } from "@/components/ui/button";
 export default function GmailContact() {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <div className="flex md:hidden items-center group hover:bg-secondary rounded-lg cursor-pointer">
-          <AtSign className="h-5 w-auto" />
-          <p className="mx-5 text-sm md:text-xl group-hover:underline">
-            w.gayongan@gmail.com
-          </p>
-        </div>
+        <Button
+          variant="ghost"
+          size="lg"
+          className="justify-between p-2 space-x-4"
+        >
+          <AtSign className="h-full w-auto" />
+          <span>w.gayongan@gmail.com</span>
+        </Button>
       </DrawerTrigger>
       <DrawerContent className="grid h-[70dvh] grid-rows-[auto_auto_1fr] p-1">
         <DrawerClose className="absolute w-fit h-fit top-2 right-2">

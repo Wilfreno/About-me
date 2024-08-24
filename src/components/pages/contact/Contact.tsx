@@ -15,7 +15,7 @@ export default function Contact() {
       className="grid grid-cols-1 md:grid-cols-2 snap-center w-screen h-[100dvh] p-10"
       id="contact"
     >
-      <Card className="w-[90%] h-[90%] justify-self-center self-center grid grid-rows-[auto_1fr]">
+      <Card className="hidden w-[90%] h-[90%] justify-self-center self-center sm:grid grid-rows-[auto_1fr]">
         <CardHeader className="flex flex-row items-center self-start">
           <p className="flex items-center justify-center">
             Gmail
