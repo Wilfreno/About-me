@@ -41,10 +41,10 @@ export default function RootLayout({
         className={cn(
           archivo_black.variable,
           poppins.variable,
-          oswald.variable,
+          oswald.variable
         )}
       >
-        <ThemeProvider enableSystem defaultTheme="system">
+        <ThemeProvider enableSystem defaultTheme="system" attribute="class">
           {children}
         </ThemeProvider>
         <Toaster />
