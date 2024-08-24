@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+p,
+span,
+a {
   font-family: var(--font-poppins);
 }
 

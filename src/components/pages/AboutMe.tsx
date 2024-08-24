@@ -22,18 +22,18 @@ export default function AboutMe() {
     >
       <h2 className="justify-self-center mt-10 text-xl">About me</h2>
 
-      <div className="flex justify-evenly items-center">
+      <div className="flex flex-col sm:flex-row justify-evenly items-center">
         <div>
           <Image
             src="https://avatars.githubusercontent.com/u/48620014?v=4"
             alt="Wilfreno Gayongan"
             width={500}
-            className="aspect-square h-auto md:w-[20vw] rounded-full"
+            className="aspect-square h-auto w-[50vw] sm:w-[20vw] rounded-full"
             height={500}
             priority
           />
         </div>
-        <div className="text-wrap w-1/2 px-10">
+        <div className="text-wrap text-sm sm:w-1/2 px-10 text-slate-300">
           <motion.p
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
@@ -51,7 +51,7 @@ export default function AboutMe() {
               href="https://hanapbh.vercel.app/nearby"
               as="https://hanapbh.vercel.app/nearby"
               target="_blank"
-              className="underline font-bold italic"
+              className="underline font-bold italic text-primary"
             >
               Hanap BH
             </Link>
