@@ -4,7 +4,7 @@ import ThemeToggler from "@/components/ThemeToggler";
 import { Button } from "@/components/ui/button";
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { SendHorizonal, SendHorizontal, User, UserPen } from "lucide-react";
+import {SendHorizontal, User, UserPen } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,

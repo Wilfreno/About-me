@@ -1,16 +1,14 @@
 import Header from "@/components/Header";
+import AboutMe from "@/components/pages/AboutMe";
 import Opening from "@/components/pages/opening/Opening";
-import ThemeToggler from "@/components/ThemeToggler";
-import { Button } from "@/components/ui/button";
-import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
-import Link from "next/link";
-
+import Projects from "@/components/pages/projects/Projects";
 export default function Home() {
   return (
-    <main className="w-screen h-screen">
+    <main className="snap-y snap-mandatory scroll-smooth max-h-screen overflow-x-hidden">
       <Header />
       <Opening />
-      {/* <Projects /> */}
+      <AboutMe />
+      <Projects />
       {/* <Skills /> */}
       {/* <Contact/> */}
     </main>

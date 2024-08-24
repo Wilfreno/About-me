@@ -42,7 +42,6 @@ export default function RootLayout({
           archivo_black.variable,
           poppins.variable,
           oswald.variable,
-          "snap-y snap-mandatory scroll-smooth max-h-screen overflow-x-hidden "
         )}
       >
         <ThemeProvider enableSystem defaultTheme="system">

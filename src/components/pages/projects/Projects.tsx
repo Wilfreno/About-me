@@ -1,6 +1,4 @@
 import Croom from "./Croom";
-import HanapBH from "./HanapBH";
-import { motion } from "framer-motion";
 export default function Projects() {
   return (
     <section

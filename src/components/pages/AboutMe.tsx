@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,38 +16,50 @@ export default function AboutMe() {
   }, []);
 
   return (
-    <motion.p
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
-      exit={{ opacity: 0, x: -50, transition: { duration: 0.3 } }}
-      className="text-justify text-xs md:text-lg p-3 self-center"
+    <section
+      id="me"
+      className="h-[100dvh] w-screen snap-center grid grid-rows-[auto_1fr]"
     >
-      <span className="grow flex justify-center">
-        <Image
-          src="https://avatars.githubusercontent.com/u/48620014?v=4"
-          alt="Wilfreno Gayongan"
-          width={500}
-          height={500}
-          className="aspect-square h-auto md:w-[15vw] rounded-full"
-          priority
-        />
-      </span>
-      I discover my love in programming during the Covid-19 pandemic, Post
-      pandemic i decided to enroll for a CS degree at MSU-IIT but i'm having a
-      difficulty in terms of money and tools for studying web development. I
-      want to financially support myself and still continue learning and
-      becoming a better web developer. Using React / Next.js with Typescript ,
-      tailwind-css , and Node.js for the the backend i'm currently improving
-      myself by creating my on personal project{" "}
-      <Link
-        href="https://croom-wing.vercel.app/"
-        as="https://croom-wing.vercel.app/"
-        target="_blank"
-        className="text-primary underline font-bold"
-      >
-        croom
-      </Link>
-      . With this project, i'm confident in my capabilities as a web developer.
-    </motion.p>
+      <h2 className="justify-self-center mt-10 text-xl">About me</h2>
+
+      <div className="flex justify-evenly items-center">
+        <div>
+          <Image
+            src="https://avatars.githubusercontent.com/u/48620014?v=4"
+            alt="Wilfreno Gayongan"
+            width={500}
+            className="aspect-square h-auto md:w-[20vw] rounded-full"
+            height={500}
+            priority
+          />
+        </div>
+        <div className="text-wrap w-1/2 px-10">
+          <motion.p
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
+            exit={{ opacity: 0, x: -50, transition: { duration: 0.3 } }}
+            className="whitespace-pre-line"
+          >
+            I discover my love in programming during the Covid-19 pandemic, Post
+            pandemic i decided to enroll for a CS degree at MSU-IIT but i'm
+            having a difficulty in terms of money and tools for studying web
+            development. I want to financially support myself and still continue
+            learning and becoming a better web developer. Using React / Next.js
+            with Typescript , tailwind-css , and Node.js for the the backend i'm
+            currently improving myself by creating my on personal project{" "}
+            <Link
+              href="https://hanapbh.vercel.app/nearby"
+              as="https://hanapbh.vercel.app/nearby"
+              target="_blank"
+              className="underline font-bold italic"
+            >
+              Hanap BH
+            </Link>
+            . With this project, i'm confident in my capabilities as a web
+            developer.
+          </motion.p>
+        </div>
+      </div>
+    </section>
   );
 }
