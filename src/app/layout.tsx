@@ -14,7 +14,7 @@ const archivo_black = Archivo_Black({
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["400", "600", "700"],
   display: "swap",
   variable: "--font-poppins",
 });

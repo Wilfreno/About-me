@@ -23,8 +23,11 @@ import {
 } from "@/components/ui/tooltip";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Skills() {
+  const [selected, setSelected] = useState("");
   const skills = [
     {
       name: "Front end",
@@ -65,7 +68,7 @@ export default function Skills() {
     >
       <h2 className="justify-self-center mt-10 text-xl">Skills</h2>
 
-      <div className="grid grid-cols-3 gap-8 p-10">
+      <div className="hidden sm:grid grid-cols-3 gap-8 p-10">
         {skills.map((skill) => (
           <Card key={skill.name}>
             <CardHeader>
@@ -90,6 +93,44 @@ export default function Skills() {
                 ))}
               </TooltipProvider>
             </CardContent>
+          </Card>
+        ))}
+      </div>
+      <div className="flex flex-col gap-8 p-10">
+        {skills.map((skill) => (
+          <Card
+            key={skill.name}
+            className="transform transition ease-out duration-300"
+            onClick={() =>
+              setSelected((prev) => (prev !== skill.name ? skill.name : ""))
+            }
+          >
+            <CardHeader>
+              <CardTitle>{skill.name}</CardTitle>
+            </CardHeader>
+            {selected === skill.name && (
+              <CardContent className="grid grid-cols-3 place-items-center h-fit gap-4">
+                {skill.icons.map((icon, index) => (
+                  <motion.div
+                    key={icon.name}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="grid place-items-center"
+                  >
+                    <div className="relative overflow-hidden aspect-square h-12 w-auto">
+                      <Image
+                        src={icon.svg}
+                        className="h-full w-full object-contain"
+                        alt={icon.name}
+                        priority
+                      />
+                    </div>
+                    <p className="text-xs font-semibold">{icon.name}</p>
+                  </motion.div>
+                ))}
+              </CardContent>
+            )}
           </Card>
         ))}
       </div>
