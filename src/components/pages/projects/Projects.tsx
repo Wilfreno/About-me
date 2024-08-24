@@ -30,7 +30,7 @@ export default function Projects() {
           </Card>
         ))}{" "}
       </div>
-      <div className="p-10">
+      <div className="p-10 sm:hidden">
         {items.map((item) => (
           <Card
             onClick={() =>
