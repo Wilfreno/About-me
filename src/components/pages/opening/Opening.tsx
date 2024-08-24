@@ -4,7 +4,7 @@ import ThemeToggler from "@/components/ThemeToggler";
 import { Button } from "@/components/ui/button";
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import {SendHorizontal, User, UserPen } from "lucide-react";
+import { SendHorizontal, User, UserPen } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -31,10 +31,10 @@ export default function Opening() {
     <section className="w-screen h-[100dvh] max-h-screen snap-center grid place-items-center">
       <div className="flex flex-col relative">
         <ThemeToggler />
-        <span className="text-7xl space-y-3">
+        <span className="text-5xl sm:text-7xl space-y-3">
           <h1>Wilfreno</h1>
           <h1>Gayongan</h1>
-          <h2 className="font-bold indent-3 text-3xl text-muted-foreground">
+          <h2 className="font-bold sm:indent-3 text-3xl text-muted-foreground">
             Web Developer
           </h2>
         </span>
@@ -78,17 +78,13 @@ export default function Opening() {
               </TooltipTrigger>
               <TooltipContent>Resume</TooltipContent>
             </Tooltip>
-
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant="ghost" className="p-1">
-                  <SendHorizontal className="h-full w-auto" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>Contact me</TooltipContent>
-            </Tooltip>
           </TooltipProvider>
         </div>
+        <Button className="p-1 font-bold">
+          <Link href="#contact" className="w-full">
+            Contact me
+          </Link>
+        </Button>
       </div>
     </section>
   );

@@ -11,8 +11,8 @@ export default function Header() {
     { name: "Contact", link: "contact" },
   ];
   return (
-    <header className="fixed inset-x-0 top-0 flex sm:justify-end py-3 px-3 sm:px-5 bg-transparent sm:backdrop-blur-md">
-      <nav className="space-x-5 hidden sm:inline-flex">
+    <header className="fixed top-0 w-screen flex sm:justify-end py-3 sm:py-0  px-3 sm:px-5 bg-transparent ">
+      <nav className="space-x-5 hidden sm:inline-flex sm:backdrop-blur-lg py-3 rounded-lg">
         {pages.map((page) => (
           <Link key={page.name} href={"#" + page.link}>
             <Button
@@ -28,7 +28,7 @@ export default function Header() {
       </nav>
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="secondary" size="icon" className="sm:hidden p-1">
+          <Button variant="secondary" size="icon" className="sm:hidden p-1 ">
             <Menu className="h-full w-auto" />
           </Button>
         </SheetTrigger>

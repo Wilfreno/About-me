@@ -18,12 +18,12 @@ const ThemeToggler = forwardRef(function () {
   return (
     <Button
       variant="ghost"
-      size="icon"
+      size="sm"
       onClick={() => setIsDark((prev) => !prev)}
       className="p-1 absolute top-0 right-0"
     >
-      {!is_dark && <SunIcon className=" h-auto w-full " />}
-      {is_dark && <MoonIcon className=" h-auto w-full" />}
+      {!is_dark && <SunIcon className=" h-full w-auto " />}
+      {is_dark && <MoonIcon className=" h-full w-auto" />}
     </Button>
   );
 });

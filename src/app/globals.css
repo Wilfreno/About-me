@@ -9,7 +9,8 @@
 h1 {
   font-family: var(--font-archivo-black);
 }
-h2 {
+h2,
+button {
   font-family: var(--font-oswald);
 }
 
