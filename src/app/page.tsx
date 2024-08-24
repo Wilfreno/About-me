@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import AboutMe from "@/components/pages/AboutMe";
+import Contact from "@/components/pages/contact/Contact";
 import Opening from "@/components/pages/opening/Opening";
 import Projects from "@/components/pages/projects/Projects";
 import Skills from "@/components/pages/skills/Skills";
@@ -11,7 +12,7 @@ export default function Home() {
       <AboutMe />
       <Skills />
       <Projects />
-      {/* <Contact/> */}
+      <Contact />
     </main>
   );
 }

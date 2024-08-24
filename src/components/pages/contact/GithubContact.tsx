@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
@@ -9,24 +10,22 @@ import Link from "next/link";
 
 export default function GithubContact() {
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Link
-            href="https://github.com/Wilfreno"
-            target="_blank"
-            className="flex items-center group hover:bg-secondary rounded-lg md:p-2"
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Link href="https://github.com/Wilfreno" target="_blank">
+          <Button
+            variant="ghost"
+            size="lg"
+            className="justify-between p-2 space-x-4"
           >
-            <GitHubLogoIcon className="h-auto w-5 md:w-10 " />
-            <p className="mx-5 text-sm md:text-xl group-hover:underline">
-              /Wilfreno
-            </p>
-          </Link>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>https://github.com/Wilfreno</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+            <GitHubLogoIcon className="h-full w-auto" />
+            <span>/Wilfreno</span>
+          </Button>
+        </Link>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>https://github.com/Wilfreno</p>
+      </TooltipContent>
+    </Tooltip>
   );
 }

@@ -1,51 +1,40 @@
 "use client";
-import { motion } from "framer-motion";
 
-import EmailCard from "./EmailCard";
 import GmailContact from "./GmailContact";
 import GithubContact from "./GithubContact";
-import LinkdenContact from "./LinkdenContact";
+import LinkedInContact from "./LinkdenContact";
 import PhoneContact from "./PhoneContact";
-import { useEffect, useState } from "react";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Mail, Phone } from "lucide-react";
+import EmailForm from "./EmailForm";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export default function Contact() {
-  const [width, setWidth] = useState<number>();
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-    function handleResize() {
-      setWidth(window.innerWidth);
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <section
       className="grid grid-cols-1 md:grid-cols-2 snap-center w-screen h-[100dvh] p-10"
       id="contact"
     >
-      {width! > 640 && <EmailCard />}
-      <div className="grid grid-rows-[auto_1fr]">
-        <h1 className="text-3xl lg:text-5xl font-bold flex mx-auto my-5">
-          {"Contact".split("").map((c, index) => (
-            <motion.p
-              key={index}
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * index }}
-            >
-              {c}
-            </motion.p>
-          ))}
-        </h1>
-        <div className="space-y-14 flex flex-col justify-center items-start self-center justify-self-center">
-          <PhoneContact />
-          <GmailContact />
-          <GithubContact />
-          <LinkdenContact />
+      <Card className="w-[90%] h-[90%] justify-self-center self-center grid grid-rows-[auto_1fr]">
+        <CardHeader className="flex flex-row items-center self-start">
+          <p className="flex items-center justify-center">
+            Gmail
+            <Mail className="h-5 mx-2" />
+          </p>
+        </CardHeader>
+        <CardContent className="grid">
+          <EmailForm />
+        </CardContent>
+      </Card>
+      <div className="grid grid-rows-[auto_1fr] space-y-20">
+        <h2 className="justify-self-center mt-10 text-xl">Contacts</h2>
+        <div className="space-y-8 justify-self-center flex flex-col">
+          <TooltipProvider>
+            <PhoneContact />
+            <GmailContact />
+            <GithubContact />
+            <LinkedInContact />
+          </TooltipProvider>
         </div>
       </div>
     </section>
