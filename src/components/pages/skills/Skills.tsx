@@ -96,7 +96,7 @@ export default function Skills() {
           </Card>
         ))}
       </div>
-      <div className="flex flex-col gap-8 p-10">
+      <div className="flex flex-col gap-8 p-10 sm:hidden">
         {skills.map((skill) => (
           <Card
             key={skill.name}
