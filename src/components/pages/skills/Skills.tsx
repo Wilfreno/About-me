@@ -74,7 +74,7 @@ export default function Skills() {
             <CardContent className="grid grid-cols-3 place-items-center h-full">
               <TooltipProvider>
                 {skill.icons.map((icon) => (
-                  <Tooltip>
+                  <Tooltip key={icon.name}>
                     <TooltipTrigger>
                       <div className="relative overflow-hidden aspect-square h-12 w-auto">
                         <Image
