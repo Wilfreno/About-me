@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import cssSvg from "../../../../public/icons8-css.svg";
 import htmlSvg from "../../../../public/icons8-html.svg";
 import javascriptSvg from "../../../../public/icons8-javascript.svg";
@@ -13,15 +13,21 @@ import mongodbSvg from "../../../../public/mongodb-svgrepo-com.svg";
 import mongooseSvg from "../../../../public/Mongoose.js.svg";
 import gitSvg from "../../../../public/icons8-git.svg";
 import githubSvg from "../../../../public/icons8-github.svg";
-import dockerSvg from "../../../../public/docker-svgrepo-com.svg"
-import gcpSvg from "../../../../public/gcp-svgrepo-com.svg"
-import { useEffect, useRef, useState } from "react";
-import SkillCard from "./SkillCard";
+import dockerSvg from "../../../../public/docker-svgrepo-com.svg";
+import gcpSvg from "../../../../public/gcp-svgrepo-com.svg";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Skills() {
-  const [skill_index, setIndex] = useState(0);
-  const [hold, setHold] = useState(false);
-  const div_Ref = useRef(null);
+  const [selected, setSelected] = useState("");
   const skills = [
     {
       name: "Front end",
@@ -55,34 +61,77 @@ export default function Skills() {
       ],
     },
   ];
-  useEffect(() => {
-    let id: NodeJS.Timeout;
-    if (div_Ref && !hold) {
-      id = setInterval(() => setIndex((prev) => (prev + 1) % 3), 5000);
-    }
-
-    return () => clearInterval(id);
-  }, [div_Ref, hold]);
   return (
-    <section className="grid grid-rows-[auto_1fr_auto] h-[100dvh] w-screen snap-center" id="skills">
-      <h1 className="flex text-3xl lg:text-5xl font-bold mx-auto my-5">
-        Skills
-      </h1>
-      <SkillCard
-        name={skills[skill_index].name}
-        icons={skills[skill_index].icons}
-        ref={div_Ref}
-        setHold={setHold}
-      />
-      <div className="space-x-3 mx-auto self-end my-10">
-        {skills.map((_, index) => (
-          <button
-            key={index}
-            className={`${
-              index === skill_index ? "bg-primary" : "bg-secondary"
-            } aspect-square h-3 sm:h-5 w-auto rounded-full border border-primary dark:border-none`}
-            onClick={() => setIndex(index)}
-          ></button>
+    <section
+      className="grid grid-rows-[auto_1fr] h-[100dvh] w-screen snap-center"
+      id="skills"
+    >
+      <h2 className="justify-self-center mt-10 text-xl">Skills</h2>
+
+      <div className="hidden sm:grid grid-cols-3 gap-8 p-10">
+        {skills.map((skill) => (
+          <Card key={skill.name}>
+            <CardHeader>
+              <CardTitle className="text-center">{skill.name}</CardTitle>
+            </CardHeader>
+            <CardContent className="grid grid-cols-3 place-items-center h-full">
+              <TooltipProvider>
+                {skill.icons.map((icon) => (
+                  <Tooltip key={icon.name}>
+                    <TooltipTrigger>
+                      <div className="relative overflow-hidden aspect-square h-12 w-auto">
+                        <Image
+                          src={icon.svg}
+                          className="h-full w-full object-contain"
+                          alt={icon.name}
+                          priority
+                        />
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent>{icon.name}</TooltipContent>
+                  </Tooltip>
+                ))}
+              </TooltipProvider>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+      <div className="flex flex-col gap-8 p-10 sm:hidden">
+        {skills.map((skill) => (
+          <Card
+            key={skill.name}
+            className="transform transition ease-out duration-300"
+            onClick={() =>
+              setSelected((prev) => (prev !== skill.name ? skill.name : ""))
+            }
+          >
+            <CardHeader>
+              <CardTitle>{skill.name}</CardTitle>
+            </CardHeader>
+            {selected === skill.name && (
+              <CardContent className="grid grid-cols-3 place-items-center h-fit gap-4">
+                {skill.icons.map((icon, index) => (
+                  <motion.div
+                    key={icon.name}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="grid place-items-center"
+                  >
+                    <div className="relative overflow-hidden aspect-square h-12 w-auto">
+                      <Image
+                        src={icon.svg}
+                        className="h-full w-full object-contain"
+                        alt={icon.name}
+                        priority
+                      />
+                    </div>
+                    <p className="text-xs font-semibold">{icon.name}</p>
+                  </motion.div>
+                ))}
+              </CardContent>
+            )}
+          </Card>
         ))}
       </div>
     </section>

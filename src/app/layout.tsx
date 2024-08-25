@@ -1,12 +1,30 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Archivo_Black, Oswald, Poppins } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
-const inter = Roboto({ subsets: ["latin"], weight: ["300", "400", "500"] });
+const archivo_black = Archivo_Black({
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+  variable: "--font-archivo-black",
+});
 
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
+  variable: "--font-poppins",
+});
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+  variable: "--font-oswald",
+});
 export const metadata: Metadata = {
   title: "Wilfreno Gayongan",
   description: "Wilfreno Gayongan (Wing) Web Developer",
@@ -21,14 +39,15 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          inter.className,
-          "snap-y snap-mandatory scroll-smooth max-h-screen overflow-x-hidden "
+          archivo_black.variable,
+          poppins.variable,
+          oswald.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider enableSystem defaultTheme="system" attribute="class">
           {children}
-          <Toaster />
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );

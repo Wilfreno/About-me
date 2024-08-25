@@ -1,10 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import {
-  Dispatch,
-  SetStateAction,
-  forwardRef,
-} from "react";
+import { Dispatch, SetStateAction, forwardRef } from "react";
 
 type Props = {
   name: string;
@@ -29,11 +25,11 @@ const SkillCard = forwardRef<HTMLDivElement, Props>(
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl md:text-7xl font-semibold self-center justify-self-center"
+          className="text-2xl self-center justify-self-center"
         >
           {name}
         </motion.h2>
-        <ul className="grid grid-cols-3">
+        <ul className="flex gap-8 flex-wrap">
           {icons.map((icon, index) => (
             <motion.li
               className="flex flex-col justify-center items-center space-y-2"
@@ -42,14 +38,7 @@ const SkillCard = forwardRef<HTMLDivElement, Props>(
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * index }}
             >
-              <div className="relative overflow-hidden aspect-square h-12 w-auto md:h-14">
-                <Image
-                  src={icon.svg}
-                  className="h-full w-full object-contain"
-                  alt={icon.name}
-                  priority
-                />
-              </div>
+             
               <p className="text-xs font-semibold">{icon.name}</p>
             </motion.li>
           ))}
