@@ -21,18 +21,19 @@ export default function Projects() {
 
       <div className="hidden sm:grid grid-cols-4 p-10">
         {items.map((item) => (
-          <Card>
+          <Card key={item.title}>
             <CardHeader className="flex-row items-center justify-center space-x-4">
               <CardTitle>{item.title}</CardTitle>
               {item.logo}
             </CardHeader>
-            {selected === item.title && item.content}
+            {item.content}
           </Card>
-        ))}{" "}
+        ))}
       </div>
       <div className="p-10 sm:hidden">
         {items.map((item) => (
           <Card
+            key={item.title}
             onClick={() =>
               setSelected((prev) => (prev !== item.title ? item.title : ""))
             }
