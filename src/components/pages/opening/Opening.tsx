@@ -28,7 +28,7 @@ export default function Opening() {
   }
 
   return (
-    <section className="w-screen h-[100dvh] max-h-screen snap-center grid place-items-center">
+    <section id="w" className="w-screen h-[100dvh] max-h-screen snap-center grid place-items-center">
       <div className="flex flex-col relative">
         <ThemeToggler />
         <span className="text-5xl sm:text-7xl space-y-3">
