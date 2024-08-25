@@ -3,12 +3,11 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Home, Menu } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 
 export default function Header() {
-  const [hash, setHash] = useState("");
 
   const router = useRouter();
   const pages = [
@@ -20,16 +19,15 @@ export default function Header() {
 
   useEffect(() => {
     if (!window) return;
-    setHash(window.location.hash.substring(1));
     window.location.hash.substring(1) && router.push(window.location.hash);
   }, []);
 
   return (
     <header className="fixed top-0 w-screen flex py-3 sm:py-0  px-3 sm:px-5 bg-transparent ">
       <nav className="hidden w-full sm:inline-flex justify-between items-center">
-        <Link href="#w" onClick={() => setHash("w")}>
+        <Link href="#w" >
           <Button
-            variant={!hash ? "default" : hash === "w" ? "default" : "ghost"}
+            variant="ghost"
             type="button"
             className="p-1 rounded-full h-fit"
           >
@@ -41,10 +39,9 @@ export default function Header() {
             <Link
               key={page.name}
               href={"#" + page.link}
-              onClick={() => setHash(page.link)}
             >
               <Button
-                variant={page.link === hash ? "secondary" : "ghost"}
+                variant="ghost"
                 key={page.name}
                 type="button"
                 className={cn("font-semibold")}
@@ -63,10 +60,10 @@ export default function Header() {
         </SheetTrigger>
         <SheetContent side="left">
           <nav className="space-y-5 grid py-5">
-            <Link href="#w" onClick={() => setHash("w")}>
+            <Link href="#w" >
               <Button
                 type="button"
-                variant={!hash ? "default" : hash === "w" ? "default" : "ghost"}
+                variant="ghost"
                 className="font-semibold w-full justify-start"
               >
                 Top
@@ -76,10 +73,9 @@ export default function Header() {
               <Link
                 key={page.name}
                 href={"#" + page.link}
-                onClick={() => setHash(page.link)}
               >
                 <Button
-                  variant={page.link === hash ? "secondary" : "ghost"}
+                  variant="ghost"
                   key={page.name}
                   type="button"
                   className="font-semibold w-full justify-start"

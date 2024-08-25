@@ -4,13 +4,16 @@ import ThemeToggler from "@/components/ThemeToggler";
 import { Button } from "@/components/ui/button";
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { SendHorizontal, User, UserPen } from "lucide-react";
+import { User, } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+
+
+
 export default function Opening() {
   async function handleClick() {
     try {
@@ -28,7 +31,7 @@ export default function Opening() {
   }
 
   return (
-    <section id="w" className="w-screen h-[100dvh] max-h-screen snap-center grid place-items-center">
+    <section  id="w" className="w-screen h-[100dvh] max-h-screen snap-center grid place-items-center">
       <div className="flex flex-col relative">
         <ThemeToggler />
         <span className="text-5xl sm:text-7xl space-y-3">
