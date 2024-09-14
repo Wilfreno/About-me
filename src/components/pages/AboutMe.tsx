@@ -33,12 +33,11 @@ export default function AboutMe() {
             priority
           />
         </div>
-        <div className="text-wrap text-sm sm:w-1/2 px-10 text-slate-300">
           <motion.p
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
             exit={{ opacity: 0, x: -50, transition: { duration: 0.3 } }}
-            className="whitespace-pre-line"
+            className="prose text-primary"
           >
             I discover my love in programming during the Covid-19 pandemic, Post
             pandemic i decided to enroll for a CS degree at MSU-IIT but i'm
@@ -58,7 +57,6 @@ export default function AboutMe() {
             . With this project, i'm confident in my capabilities as a web
             developer.
           </motion.p>
-        </div>
       </div>
     </section>
   );

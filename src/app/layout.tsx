@@ -12,7 +12,7 @@ const archivo_black = Archivo_Black({
   variable: "--font-archivo-black",
 });
 
-const poppins = Poppins({
+const poppins = Poppins({ 
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   display: "swap",
@@ -44,7 +44,7 @@ export default function RootLayout({
           oswald.variable
         )}
       >
-        <ThemeProvider enableSystem defaultTheme="system" attribute="class">
+        <ThemeProvider enableSystem defaultTheme="dark" attribute="class">
           {children}
         </ThemeProvider>
         <Toaster />
